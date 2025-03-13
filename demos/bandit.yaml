@@ -1,0 +1,38 @@
+tests:
+  # --- 硬编码密码/密钥 ---
+  - B105  # hardcoded_password_string (硬编码密码字符串)
+  - B106  # hardcoded_password_funcarg (硬编码密码作为函数参数)
+  - B107  # hardcoded_password_default (硬编码默认密码)
+  - B113  # hardcoded_tmp_directory (硬编码临时目录 - 间接相关)
+
+  # --- 不安全的哈希算法 ---
+  - B303  # md5 (MD5 哈希算法)
+  - B324  # hashlib_insecure_functions (hashlib 不安全函数，如 md5, sha1)
+
+  # --- 不安全的随机数生成 ---
+  - B311  # random (不安全的随机数生成器)
+
+  # --- 加密/解密相关 ---
+  - B329  # insecure_cryptographic_storage (不安全的加密存储)
+  - B505  # weak_cryptographic_key (弱加密密钥)
+  - B506  # use_of_cryptographically_insecure_algorithms (使用不安全的加密算法, DES, RC4 等)
+  - B703  # Paramiko 弱加密模式 (Paramiko 库相关)
+  - B704  # M2Crypto 弱加密模式 (M2Crypto 库相关)
+  - B304  # ciphers
+  # --- SSL/TLS 相关 ---
+  - B501  # requests_with_verify_false (Requests 请求禁用 SSL 验证)
+  - B502  # ssl_with_bad_version (使用不安全的 SSL/TLS 版本)
+  - B503  # ssl_with_bad_defaults (使用不安全的 SSL/TLS 默认配置)
+  - B504  # ssl_with_no_version (未使用 SSL/TLS 版本)
+  - B323  # unverified_context (未验证的 SSL/TLS 上下文)
+  - B407 # tls_disabled_check (禁用TLS证书检查)
+  # --- XML 相关 (可能涉及加密) ---
+  - B404  # insecure_xml_entity_expansion (不安全的 XML 实体扩展 - 可能与加密相关)
+  - B405  # use_of_xml_vulnerable_parser (使用易受攻击的 XML 解析器 - 可能与加密相关)
+  - B409  # xml_bad_cElementTree (不安全的 cElementTree 使用)
+  # --- 其他 (间接相关) ---
+  - B108  # hardcoded_temp_file (硬编码临时文件 - 可能被用于存储敏感数据)
+  - B322  # blacklist_calls (黑名单函数 - 检查调用不建议使用的函数, 其中一些与加密有关)
+  - B325  # tempfile_mkstemp (不安全的临时文件创建 - 间接相关)
+  - B608   # hardcoded_sql_expressions
+  - B307   #blacklist_imports
